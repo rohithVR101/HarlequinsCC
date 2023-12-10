@@ -15,7 +15,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NotFoundFallbackComponent } from './components/not-found-fallback/not-found-fallback/not-found-fallback.component';
+import { NotFoundFallbackComponent } from './components/not-found-fallback/not-found-fallback.component';
 import { LoginComponent } from './components/club/login/login.component';
 import { SignUpComponent } from './components/club/sign-up/sign-up.component';
 

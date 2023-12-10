@@ -1,18 +1,8 @@
-<mat-toolbar style="background-color: #880e4f; color: aliceblue">
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-      <mat-icon>menu</mat-icon>
-    </button>
-    <span> Harlequins Cricket Club</span>
-    <span class="example-spacer"></span>
-    <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
-      <mat-icon>favorite</mat-icon>
-    </button>
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-      <mat-icon>share</mat-icon>
-    </button>
-  </mat-toolbar>
-  
-  <div>
+<div class="container">
+  <div class="card">
+    <div class="title-header">
+      <h1 class="title">Get in the club!</h1>
+    </div>
     <form class="login-form" [formGroup]="form" (ngSubmit)="login()">
       <mat-form-field appearance="fill" class="login-full-width">
         <mat-label>Username or email</mat-label>
@@ -28,6 +18,24 @@
           Password is required
         </mat-error>
       </mat-form-field>
-      <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">Login</button>
+      <div class="options">
+        <a href="#" class="link">Forgot password?</a>
+        <a href="#" class="link">Create an account</a>
+      </div>
+      <button mat-raised-button class="login-full-width" color="primary" type="submit"
+        [disabled]="form.invalid">Login</button>
+      <div class="socials">
+        <a href="#" class="icon facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="icon twitter"><i class="fab fa-twitter"></i></a>
+        <a href="#" class="icon google"><i class="fab fa-google"></i></a>
+      </div>
     </form>
   </div>
+  <div class="attribution">
+    Image by <a
+      href="https://pixabay.com/users/tookapic-1386459/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=931975">
+      tookapic </a> from <a
+      href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=931975">
+      Pixabay</a>
+  </div>
+</div>

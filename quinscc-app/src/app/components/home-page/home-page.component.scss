@@ -1,1 +1,12 @@
+.example-spacer {
+  flex: 1 1 auto;
+}
 
+div {
+  display: flex;
+  align-items: center;
+}
+
+td {
+  padding-right: 8px;
+}

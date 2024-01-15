@@ -6,7 +6,7 @@ import { NotFoundFallbackComponent } from './components/not-found-fallback/not-f
 import { HomePageComponent } from './components/home-page/home-page.component';
 
 export const routes: Routes = [
-  { path: '', redirectTo: 'join-the-club', pathMatch: 'full' },
+  { path: '', redirectTo: 'index', pathMatch: 'full' },
   { path: 'index', component: HomePageComponent },
   { path: 'join-the-club', component: SignUpComponent },
   { path: 'login', component: LoginComponent },

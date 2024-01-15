@@ -1,10 +1,33 @@
-<mat-toolbar style="background-color: #880e4f; color: aliceblue">
-  <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-    <mat-icon>menu</mat-icon>
-  </button>
-  <span> Harlequins Cricket Club</span>
-  <span class="example-spacer"></span>
-  <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-    <mat-icon>login</mat-icon>
-  </button>
-</mat-toolbar>
+<mat-tab-group headerPosition="below" [selectedIndex]="selectedNews.value"
+    (selectedIndexChange)="selectedNews.setValue($event)">
+    <mat-tab *ngFor="let news of newsList; index as i" label="">
+        <ng-template mat-tab-label>
+            <div class="label-card" style="flex-direction: column;">
+                {{news.title}}
+                <mat-progress-bar *ngIf="selectedNews.value === i" mode="determinate" [value]="progressValue">
+                </mat-progress-bar>
+            </div>
+        </ng-template>
+        <div class="news-content">
+            <div class="news-image" style="background-image: url('{{news.image}}')"></div>
+            <p>{{news.summary}}</p>
+            <a mat-button [href]="news.url">Read more</a>
+        </div>
+    </mat-tab>
+</mat-tab-group>
+
+<mat-grid-list cols="3" rowHeight="2:1" gutterSize="10px">
+    <mat-grid-tile *ngFor="let video of videoList">
+        <mat-card class="example-card">
+            <mat-card-header>
+                <mat-card-title>{{video.title}}</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <img src="{{video.thumbnail}}" alt="Video thumbnail">
+            </mat-card-content>
+            <mat-card-actions>
+                <a mat-button [href]="video.url">Watch</a>
+            </mat-card-actions>
+        </mat-card>
+    </mat-grid-tile>
+</mat-grid-list>

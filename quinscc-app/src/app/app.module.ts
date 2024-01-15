@@ -3,7 +3,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
-import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatCardModule } from '@angular/material/card';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgIf } from '@angular/common';
 import { MatInputModule } from '@angular/material/input';
@@ -34,6 +40,12 @@ import { SignUpComponent } from './components/club/sign-up/sign-up.component';
     MatToolbarModule,
     MatButtonModule,
     MatIconModule,
+    MatGridListModule,
+    MatCardModule,
+    MatTabsModule,
+    MatProgressBarModule,
+    MatSidenavModule,
+    MatListModule,
     MatSnackBarModule,
     BrowserAnimationsModule,
     FormsModule,

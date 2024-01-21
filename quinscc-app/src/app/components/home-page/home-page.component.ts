@@ -12,8 +12,8 @@ import { repeat } from 'rxjs/operators';
 
 export class HomePageComponent {
   progressValue: number = 0;
-  timer = interval(100);
-  result:any;
+  timer = interval(10000);
+  result: any;
 
   newsList = [
     {
@@ -29,7 +29,7 @@ export class HomePageComponent {
       url: "https://www.bbc.com/news/world-europe-63546758",
     },
     {
-      title: "Harlequins CC Launches Initiative to Empower Girl Cricketers:",
+      title: "Harlequins CC Launches Initiative to Empower Girl Cricketers",
       summary: "HCC has embarked on a commendable initiative to empower young girls from underprivileged communities to pursue cricket. Partnering with local NGOs, Rohan has launched a program that provides girls with access to free coaching, equipment, and mentorship from experienced cricketers. This program has already seen a surge in participation and ignited a passion for cricket in countless young girls.",
       image: "https://images.pexels.com/photos/13509971/pexels-photo-13509971.jpeg",
       url: "https://www.sciencedaily.com/releases/2023/12/231228105455.htm",
@@ -45,26 +45,26 @@ export class HomePageComponent {
   selectedNews = new FormControl(0);
   constructor() {
     this.result = this.timer.pipe(
-      takeWhile((result) => result < 100),
       repeat()
     );
-    this.result.subscribe((value: number) => {
-      this.setProgress(value);
+    this.result.subscribe(() => {
+      this.changeNewsSlide();
     });
   }
 
-  setProgress(newValue: number): void{
-    this.progressValue = newValue;
-    if(newValue == 99) {
-      let current: number = this.selectedNews.value == null ? 0 : this.selectedNews.value;
-      this.selectedNews.setValue(current == this.newsList.length-1 ? 0 : current + 1);
-    }
+  changeNewsSlide(): void {
+    let current: number = this.selectedNews.value == null ? 0 : this.selectedNews.value;
+    this.changeSlide(current == this.newsList.length - 1 ? 0 : current + 1);
+  }
+
+  changeSlide(index: number) {
+    this.selectedNews.setValue(index);
   }
 
   videoList = [
-    { id: "watch?v=K-mV_8aeQsk", title: "Harlequins CC Pull Off Last-Ball Thriller Against Archrivals", thumbnail: "dd", url: "http://www.youtube.com/watch?v=K-mV_8aeQsk" },
-    { id: "watch?v=AOkNx8KAtR4", title: "HCC Academy Discovers Unpolished Gem in Rural Village Tournament", thumbnail: "http://www.youtube.com/watch?v=AOkNx8KAtR4/hqdefault.jpg", url: "http://www.youtube.com/watch?v=AOkNx8KAtR4" },
-    { id: "watch?v=hK8POwUShVw", title: "Youtubes Most Viewed Videos", thumbnail: "http://www.youtube.com/watch?v=hK8POwUShVw/hqdefault.jpg", url: "http://www.youtube.com/watch?v=hK8POwUShVw" },
-    { id: "watch?v=JI7PzCDCfwM", title: "YouTube's Most VIEWED Videos...", thumbnail: "http://www.youtube.com/watch?v=JI7PzCDCfwM/hqdefault.jpg", url: "http://www.youtube.com/watch?v=JI7PzCDCfwM" },
+    { id: "KRmVx8aeQsk", title: "Full Highlights : Harlequins CC vs Bradford Vipers", thumbnail: "https://images.pexels.com/photos/9828008/pexels-photo-9828008.jpeg?auto=compress&cs=tinysrgb&w=600"},
+    { id: "AOkNx8KAtR4", title: "HCC Academy Discovers Unpolished Gem in Village Tournament", thumbnail: "https://images.pexels.com/photos/3718433/pexels-photo-3718433.jpeg?auto=compress&cs=tinysrgb&w=600"},
+    { id: "hK8POwUShVw", title: "Interview with the captain", thumbnail: "https://images.pexels.com/photos/11023866/pexels-photo-11023866.jpeg?auto=compress&cs=tinysrgb&w=600"},
+    { id: "JI7PzCDCfwM", title: "Interview with the coach", thumbnail: "https://images.pexels.com/photos/2872418/pexels-photo-2872418.jpeg?auto=compress&cs=tinysrgb&w=600"},
   ];
 }

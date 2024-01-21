@@ -2,32 +2,29 @@
     (selectedIndexChange)="selectedNews.setValue($event)">
     <mat-tab *ngFor="let news of newsList; index as i" label="">
         <ng-template mat-tab-label>
-            <div class="label-card" style="flex-direction: column;">
+            <div class="label-card" style="flex-direction: column;" (mouseover)="changeSlide(i)">
                 {{news.title}}
-                <mat-progress-bar *ngIf="selectedNews.value === i" mode="determinate" [value]="progressValue">
-                </mat-progress-bar>
             </div>
         </ng-template>
         <div class="news-content">
             <div class="news-image" style="background-image: url('{{news.image}}')"></div>
             <p>{{news.summary}}</p>
-            <a mat-button [href]="news.url">Read more</a>
         </div>
     </mat-tab>
 </mat-tab-group>
-
-<mat-grid-list cols="3" rowHeight="2:1" gutterSize="10px">
-    <mat-grid-tile *ngFor="let video of videoList">
-        <mat-card class="example-card">
+<mat-divider></mat-divider>
+<h1 style="margin: 30px 0px 30px 30px; font-size: xx-large;">Latest Videos</h1>
+<div class="content" fxLayout="row wrap" fxLayoutGap="16px grid">
+    <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let video of videoList">
+        <mat-card class="mat-elevation-z4">
             <mat-card-header>
                 <mat-card-title>{{video.title}}</mat-card-title>
             </mat-card-header>
-            <mat-card-content>
-                <img src="{{video.thumbnail}}" alt="Video thumbnail">
-            </mat-card-content>
+            <img mat-card-image src="{{video.thumbnail}}" />
             <mat-card-actions>
-                <a mat-button [href]="video.url">Watch</a>
+                <button mat-button routerLink="videos">Watch</button>
             </mat-card-actions>
         </mat-card>
-    </mat-grid-tile>
-</mat-grid-list>
+    </div>
+</div>
+<mat-divider></mat-divider>

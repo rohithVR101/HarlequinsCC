@@ -1,7 +1,6 @@
 package com.road.quinscc.membersservice.security;
 
 import com.road.quinscc.membersservice.service.MembersService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
@@ -57,7 +56,8 @@ public class WebSecurityConfiguration {
                 .sessionManagement(smc -> smc
                         .sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .csrf(AbstractHttpConfigurer::disable)
-                .headers((headers) -> headers.frameOptions(HeadersConfigurer.FrameOptionsConfig::sameOrigin));;
+                .headers((headers) -> headers.frameOptions(HeadersConfigurer.FrameOptionsConfig::sameOrigin));
+        ;
         return httpSecurity.build();
     }
 

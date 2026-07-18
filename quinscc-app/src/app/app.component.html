@@ -17,10 +17,10 @@
             </button>
             <span class="title-logo"> HARLEQUINS CC</span>
             <span class="example-spacer"></span>
-            <button mat-icon-button class="example-icon" aria-label="Login icon-button with icon" routerLink="../login">
+            <button mat-icon-button *ngIf="memberService.isLoggedOut$ | async" class="example-icon" aria-label="Login icon-button with icon" routerLink="../login">
                 <mat-icon>login</mat-icon>
             </button>
-            <button *ngIf="signedIn" class="example-icon" aria-label="Login icon-button with icon">
+            <button mat-icon-button *ngIf="memberService.isLoggedIn$ | async" class="example-icon" aria-label="Login icon-button with icon" (click)="logout">
                 <mat-icon>logout</mat-icon>
             </button>
         </mat-toolbar>

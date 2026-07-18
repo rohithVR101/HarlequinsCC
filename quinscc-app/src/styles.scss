@@ -20,3 +20,18 @@ $hcc-theme: mat.define-light-theme((
 html, body { height: 100%;
 background-color: #FCE4EC; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.player-card, .staff-card {
+  img {
+    height: 200px;
+    object-fit: cover;
+  }
+
+  mat-card-content {
+    padding: 1rem;
+    
+    p {
+      margin: 0.5rem 0;
+    }
+  }
+}

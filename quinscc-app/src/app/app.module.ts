@@ -19,11 +19,15 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomePageComponent } from './components/home-page/home-page.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NotFoundFallbackComponent } from './components/not-found-fallback/not-found-fallback.component';
 import { LoginComponent } from './components/club/login/login.component';
 import { SignUpComponent } from './components/club/sign-up/sign-up.component';
+import { ShopComponent } from './components/shop/shop.component';
+import { HomePageComponent } from './components/home/home-page.component';
+import { PlayerCardComponent } from './components/squad/player-card/player-card.component';
+import { SquadPageComponent } from './components/squad/squad-page.component';
+import { StaffCardComponent } from './components/squad/staff-card/staff-card.component';
 
 @NgModule({
   declarations: [
@@ -31,12 +35,21 @@ import { SignUpComponent } from './components/club/sign-up/sign-up.component';
     HomePageComponent,
     NotFoundFallbackComponent,
     LoginComponent,
-    SignUpComponent
+    SignUpComponent,
+    ShopComponent,
+    SquadPageComponent,
+    PlayerCardComponent,
+    StaffCardComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    BrowserAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule,
+    NgIf,
+    // Angular Material Modules
     MatToolbarModule,
     MatButtonModule,
     MatIconModule,
@@ -47,13 +60,8 @@ import { SignUpComponent } from './components/club/sign-up/sign-up.component';
     MatSidenavModule,
     MatListModule,
     MatSnackBarModule,
-    BrowserAnimationsModule,
-    FormsModule,
     MatFormFieldModule,
-    MatInputModule,
-    MatFormFieldModule,
-    ReactiveFormsModule,
-    NgIf
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]

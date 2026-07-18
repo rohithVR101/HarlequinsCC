@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MemberMicroService } from './service/member-micro-service/member-micro.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -6,8 +7,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Harlequins CC';
-
-  signedIn=false;
 
   contents = [
     {
@@ -46,4 +45,10 @@ export class AppComponent {
       link: "join-the-club"
     }
   ]
+
+  constructor(public memberService: MemberMicroService) { }
+
+  logout() {
+    this.memberService.logoutMember();
+  }
 }

@@ -1,6 +1,5 @@
-export class User {
-    constructor(
-        public user: string,
-        public password: string
-    ) { }
+export interface User {
+    user: string,
+    password: string,
+    userPicture: string
 }

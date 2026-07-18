@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NgForm, FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { User } from 'src/app/model/user';
+import { Router } from '@angular/router';
 import { MemberMicroService } from 'src/app/service/member-micro-service/member-micro.service';
 import { StringMatchValidator } from 'src/app/validators/string-match.validator';
 
@@ -17,7 +17,11 @@ export class LoginComponent {
   password = new FormControl('', [Validators.required]);
   hide = true;
 
-  constructor(private memberService: MemberMicroService, private formBuilder: FormBuilder, private snackBar: MatSnackBar) {
+  constructor(
+    private memberService: MemberMicroService,
+    private formBuilder: FormBuilder,
+    private snackBar: MatSnackBar,
+    private router: Router) {
     this.form = formBuilder.group({
       user: this.user,
       password: this.password,
@@ -26,18 +30,14 @@ export class LoginComponent {
 
   login() {
     this.memberService
-      .authenticateMember(new User(
+      .authenticateMember(
         this.user.value!,
         this.password.value!,
-      ))
-      .subscribe({
-        next: (v) => {
-          if (v.headers.get('authorization')) {
-            this.openSnackBar("Welcome");
-          }
+      ).subscribe({
+        next: () => {
+          this.router.navigateByUrl("/index");
         },
-        error: (e) => 
-        this.openSnackBar("Invalid credentials"),
+        error: () => alert("Invalid credentials"),
         complete: () => console.log('complete')
       });
   }
